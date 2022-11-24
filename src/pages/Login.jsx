@@ -1,12 +1,9 @@
 import React from 'react';
 import "./login.css";
-import { faEye } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEye } from '@fontawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fontawesome/react-fontawesome'
 
 export default function Login() {
-    function click() {
-        console.log('Olá Mundo!')
-    }
     return <div>
         <div class="container-login">
             <div class="login-card">
