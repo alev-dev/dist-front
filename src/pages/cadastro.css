@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: rgb(255, 255, 255);
+
+}
+
+.card-cadastro h1 {
+    font-family: 'Lato', sans-serif;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #000;
+}
+
+.container-cadastro {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 20px;
+}
+.card-cadastro .h12 {
+    margin-top: 40px;
+}
+
+.card-cadastro {
+    font-family: 'Roboto', sans-serif;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    width: 400px;
+}
+
+.label-float input {
+    width: 100%;
+    padding: 5px 5px;
+    display: inline-block;
+    border: 0;
+    border-bottom: 2px solid rgb(34, 34, 34);
+    background-color: transparent;
+    outline: none;
+    min-width: 200px;
+    font-size: 16px;
+    transition: all .3s ease-out;
+    border-radius: 0;
+}
+
+.label-float {
+    position: relative;
+    padding-top: 13px;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.label-float input:focus {
+    border-bottom: 2px solid rgb(167, 167, 167);
+    color: #000;
+}
+
+.label-float label {
+    color: rgb(0, 0, 0);
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 13px;
+    transition: all .3s ease-out;
+}
+
+.label-float input:focus + label,
+.label-float input:valid + label {
+    font-size: 13px;
+    margin-top: 0;
+}
+
+button {
+    background-color: transparent;
+    border-color: #fff;
+    color: #000;
+    padding: 7px;
+    font-weight: bold;
+    font-size: 12pt;
+    margin-top: 20px;
+    border-radius: 4px;
+    outline: none;
+    cursor: pointer;
+    transition: all .4s ease-out;
+}
+
+button:hover {
+    background-color: #3899FF;
+    color: #fff;
+}
+
+.justify-center {
+    display: flex;
+    justify-content: center;
+}
+
+
+.menu a:nth-child(1) {
+    padding: 0 30px 0;
+    margin: 15px 0 0;
+    padding-top: 15px;
+    color: #000;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all .3 s ease-out;
+}
+
+.menu a:hover {
+    height: 100%;
+    color: #3899FF;
+}
+
+input::placeholder {
+    color: rgb(153, 153, 153);
+}
+
+.fa-eye {
+    position: absolute;
+    top: 22.5px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.fa-eye:hover {
+    color: #3899FF;
+}
+
+.fa-magnifying-glass {
+    position: absolute;
+    top: 22.5px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.fa-magnifying-glass:hover {
+    color: #3899FF;
+}
+
+#labelsex select {
+    position: relative;
+    left: 30px;
+}
+
+#labelsex label {
+    position: relative;
+    left: 0;
+}
