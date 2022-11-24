@@ -25,6 +25,7 @@ export default function Login() {
                     <div class="justify-center">
                         <button onClick={() => click()}>Entrar</button>
                     </div>
+
                     <div class="justify-center">
                         <hr />
                     </div>
