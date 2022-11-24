@@ -4,6 +4,10 @@ import { faEye } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export default function Login() {
+    function click() {
+        console.log('click');
+    }
+
     return (
         <div>
             <div class="container-login">
