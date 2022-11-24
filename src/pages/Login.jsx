@@ -10,27 +10,27 @@ export default function Login() {
 
     return (
         <div>
-            <div class="container-login">
-                <div class="login-card">
+            <div className="container-login">
+                <div className="login-card">
                     <h1>Login</h1>
-                    <div class="label-float">
+                    <div className="label-float">
                         <input type="text" id="usuario" placeholder="" required onChange={() => click()} />
-                        <label for="usuario">Usuário</label>
+                        <label htmlFor="usuario">Usuário</label>
                     </div>
-                    <div class="label-float">
+                    <div className="label-float">
                         <input type="password" id="senha" placeholder="" required onChange={() => click()} />
-                        <label for="usuario">Senha</label>
+                        <label htmlFor="usuario">Senha</label>
                         <FontAwesomeIcon icon={faEye} />
                     </div>
-                    <div class="justify-center">
+                    <div className="justify-center">
                         <button onClick={() => click()}>Entrar</button>
                     </div>
 
-                    <div class="justify-center">
+                    <div className="justify-center">
                         <hr />
                     </div>
-                    <p class="justify-center">Não tem uma conta?</p>
-                    <a href="cadastro.html" class="justify-center">
+                    <p className="justify-center">Não tem uma conta?</p>
+                    <a href="cadastro.html" className="justify-center">
                         Cadastre-se
                     </a>
                 </div>
