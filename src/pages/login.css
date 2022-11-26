@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -70,8 +71,8 @@
     transition: all .3s ease-out;
 }
 
-.label-float input:focus + label,
-.label-float input:valid + label {
+.label-float input:focus+label,
+.label-float input:valid+label {
     font-size: 13px;
     margin-top: 0;
 }
@@ -112,7 +113,7 @@ p {
     text-align: center;
 }
 
-a {
+.login-a {
     margin-top: 15px;
     color: #fff;
     font-weight: bold;

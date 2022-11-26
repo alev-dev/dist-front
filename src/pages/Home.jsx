@@ -3,7 +3,6 @@ import axios from 'axios';
 import CustomCard from '../components/CustomCard';
 export default function Home() {
     const [products, setproducts] = useState([]);
-
     useEffect(() => {
         // Fetch data from API
         axios.get('https://dist-back.herokuapp.com/product').then((response) => {
@@ -27,7 +26,7 @@ export default function Home() {
             </header>
             <div className="products">
                 {products.map((product) => (
-                    <CustomCard {...product} key={product._id} buttonText={'Adicionar no carrinho'} />
+                    <CustomCard product={product} key={product._id} buttonText={'Adicionar no carrinho'} />
                 ))}
             </div>
         </div>

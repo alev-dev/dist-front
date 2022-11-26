@@ -18,7 +18,14 @@ export default function Login() {
                         <label htmlFor="usuario">Usuário</label>
                     </div>
                     <div className="label-float">
-                        <input type="password" id="senha" placeholder="" required onChange={() => click()} />
+                        <input
+                            type="password"
+                            id="senha"
+                            placeholder=""
+                            required
+                            onChange={() => click()}
+                            onBlur={(e) => console.log('focus', e)}
+                        />
                         <label htmlFor="usuario">Senha</label>
                         <FontAwesomeIcon icon={faEye} />
                     </div>
@@ -30,7 +37,7 @@ export default function Login() {
                         <hr />
                     </div>
                     <p className="justify-center">Não tem uma conta?</p>
-                    <a href="cadastro.html" className="justify-center">
+                    <a href="cadastro.html" className="login-a justify-center">
                         Cadastre-se
                     </a>
                 </div>
