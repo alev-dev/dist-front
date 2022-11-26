@@ -1,47 +1,53 @@
-import React from 'react';
-import './login.css';
+import React, { useState } from 'react';
+import "./login.css";
 import { faEye } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export default function Login() {
-    function click() {
-        console.log('click');
+
+    const [user, setUser] = useState({
+        email: "",
+        password: "",
+    });
+
+    function setEmail(email) {
+        setUser({...user, email});
     }
 
-    return (
-        <div>
-            <div className="container-login">
-                <div className="login-card">
-                    <h1>Login</h1>
-                    <div className="label-float">
-                        <input type="text" id="usuario" placeholder="" required onChange={() => click()} />
-                        <label htmlFor="usuario">Usuário</label>
-                    </div>
-                    <div className="label-float">
-                        <input
-                            type="password"
-                            id="senha"
-                            placeholder=""
-                            required
-                            onChange={() => click()}
-                            onBlur={(e) => console.log('focus', e)}
-                        />
-                        <label htmlFor="usuario">Senha</label>
-                        <FontAwesomeIcon icon={faEye} />
-                    </div>
-                    <div className="justify-center">
-                        <button onClick={() => click()}>Entrar</button>
-                    </div>
+    function setPassword(password) {
+        setUser({...user, password});
+    }
 
-                    <div className="justify-center">
-                        <hr />
-                    </div>
-                    <p className="justify-center">Não tem uma conta?</p>
-                    <a href="cadastro.html" className="login-a justify-center">
-                        Cadastre-se
-                    </a>
+    function login() {
+        setUser({email: "", password: ""});
+    }
+    
+    console.log(user);
+
+    return <div>
+        <div class="container-login">
+            <div class="login-card">
+                <h1>Login</h1>
+                <div class="label-float">
+                    <input type="text" id="usuario" required value={user.email} onChange={(e) => setEmail(e.target.value)} />
+                    <label for="usuario">Usuario</label>
                 </div>
+                <div class="label-float">
+                    <input type="password" id="senha" required value={user.password} onChange={(e) => setPassword(e.target.value)}/>
+                    <label for="usuario">Senha</label>
+                    <FontAwesomeIcon icon={faEye} />
+                </div>
+                <div class="justify-center">
+                    <button onClick={() => login()}>Entrar</button>
+                </div>
+                <div class="justify-center">
+                    <hr />
+                </div>
+                <p class="justify-center">
+                    Não tem uma conta?
+                </p>
+                <a href="cadastro.html" class="justify-center">Cadastre-se</a>
             </div>
         </div>
-    );
+    </div>;
 }
