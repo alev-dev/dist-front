@@ -5,7 +5,7 @@ export default function Home() {
     const [products, setproducts] = useState([]);
     useEffect(() => {
         // Fetch data from API
-        axios.get('https://dist-back.herokuapp.com/product').then((response) => {
+        axios.get('https://dist-back.herokuapp.comproduct').then((response) => {
             setproducts(response.data);
         });
     }, []);

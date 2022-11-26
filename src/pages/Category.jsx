@@ -10,7 +10,7 @@ export default function Category() {
     useEffect(() => {
         // Fetch data from API
         console.log(category);
-        axios.get(`http://localhost:3000/product/category/${category}`).then((response) => {
+        axios.get(`https://dist-back.herokuapp.com/product/category/${category}`).then((response) => {
             setproducts(response.data);
         });
     }, []);
