@@ -12,6 +12,11 @@ code {
     monospace;
 }
 
+a {
+  text-decoration: none !important;
+  color: #000 !important;
+}
+
 
 .order-container a {
   text-decoration: none !important;

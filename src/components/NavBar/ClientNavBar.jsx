@@ -3,12 +3,18 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import React from 'react';
-import { useAppContext } from '../context/AppContext';
+import { useAppContext } from '../../context/AppContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
-import { Link } from 'react-router-dom';
-function NavBar() {
-    const { user, cart, setState } = useAppContext();
+import { faShoppingCart, faUser } from '@fortawesome/free-solid-svg-icons';
+import { Link, useNavigate } from 'react-router-dom';
+function ClientNavBar() {
+    const { user, cart, logout } = useAppContext();
+    const navigate = useNavigate();
+    const onLogout = () => {
+        logout(() => {
+            navigate('/login');
+        });
+    };
 
     return (
         <Navbar bg="dark" variant="dark" expand="lg">
@@ -34,17 +40,33 @@ function NavBar() {
                     </Nav>
                 </Navbar.Collapse>
                 <Navbar.Collapse className=" basic-navbar-nav justify-content-end">
-                    {!user ? (
-                        <Navbar.Text>
-                            <Link href="/login"> Login</Link>
-                        </Navbar.Text>
-                    ) : (
-                        <Navbar.Text>
-                            Usuario : <Link href="/profile">{user.name}</Link>
-                        </Navbar.Text>
-                    )}
+                    <FontAwesomeIcon icon={faUser} className="mx-2" color={'#fff'} />
+                    <Nav className=" justify-content-end">
+                        <NavDropdown title="Conta" id="basic-nav-dropdown">
+                            <p>
+                                {!user ? (
+                                    <Navbar.Text>
+                                        <Link to="/login"> Login</Link>
+                                    </Navbar.Text>
+                                ) : (
+                                    <Navbar.Text className="navbar-user">User: {user.name}</Navbar.Text>
+                                )}
+                            </p>
 
-                    <Nav.Item className="navbar-cart">
+                            {user && (
+                                <>
+                                    <p>
+                                        <Link to="/orders">Meus Pedidos</Link>
+                                    </p>
+                                    <p className="navbar-logout" onClick={() => onLogout()}>
+                                        Logout
+                                    </p>
+                                </>
+                            )}
+                        </NavDropdown>
+                    </Nav>
+
+                    <Nav.Item className="navbar-cart mx-2">
                         <Link to="/cart">
                             <FontAwesomeIcon icon={faShoppingCart} color={'#fff'} />
                         </Link>
@@ -56,4 +78,4 @@ function NavBar() {
     );
 }
 
-export default NavBar;
+export default ClientNavBar;

@@ -1,53 +1,70 @@
 import React, { useState } from 'react';
-import "./login.css";
+import './login.css';
 import { faEye } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Link, useNavigate } from 'react-router-dom';
+import { useAppContext } from '../context/AppContext';
 
 export default function Login() {
-
     const [user, setUser] = useState({
-        email: "",
-        password: "",
+        email: '',
+        password: '',
     });
+    const { login } = useAppContext();
+    const navigate = useNavigate();
 
     function setEmail(email) {
-        setUser({...user, email});
+        setUser({ ...user, email });
     }
 
     function setPassword(password) {
-        setUser({...user, password});
+        setUser({ ...user, password });
     }
 
-    function login() {
-        setUser({email: "", password: ""});
+    function loginHandle() {
+        login(user, () => {
+            navigate('/');
+        });
     }
-    
-    console.log(user);
 
-    return <div>
-        <div class="container-login">
-            <div class="login-card">
-                <h1>Login</h1>
-                <div class="label-float">
-                    <input type="text" id="usuario" required value={user.email} onChange={(e) => setEmail(e.target.value)} />
-                    <label for="usuario">Usuario</label>
+    return (
+        <div>
+            <div className="container-login">
+                <div className="login-card">
+                    <h1>Login</h1>
+                    <div className="label-float">
+                        <input
+                            type="text"
+                            id="usuario"
+                            required
+                            value={user.email}
+                            onChange={(e) => setEmail(e.target.value)}
+                        />
+                        <label htmlFor="usuario">Usuario</label>
+                    </div>
+                    <div className="label-float">
+                        <input
+                            type="password"
+                            id="senha"
+                            required
+                            value={user.password}
+                            onChange={(e) => setPassword(e.target.value)}
+                        />
+                        <label htmlFor="usuario">Senha</label>
+                        <FontAwesomeIcon icon={faEye} />
+                    </div>
+                    <div className="justify-center">
+                        <button onClick={() => loginHandle()}>Entrar</button>
+                    </div>
+                    <div className="justify-center">
+                        <hr />
+                    </div>
+                    <p className="justify-center">Não tem uma conta?</p>
+                    <Link to="/register" className="justify-center">
+                        Cadastre-se
+                    </Link>
                 </div>
-                <div class="label-float">
-                    <input type="password" id="senha" required value={user.password} onChange={(e) => setPassword(e.target.value)}/>
-                    <label for="usuario">Senha</label>
-                    <FontAwesomeIcon icon={faEye} />
-                </div>
-                <div class="justify-center">
-                    <button onClick={() => login()}>Entrar</button>
-                </div>
-                <div class="justify-center">
-                    <hr />
-                </div>
-                <p class="justify-center">
-                    Não tem uma conta?
-                </p>
-                <a href="cadastro.html" class="justify-center">Cadastre-se</a>
             </div>
         </div>
-    </div>;
+    );
 }

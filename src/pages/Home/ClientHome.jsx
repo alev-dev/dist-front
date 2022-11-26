@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import CustomCard from '../components/CustomCard';
-export default function Home() {
+import CustomCard from '../../components/CustomCard';
+export default function ClientHome() {
     const [products, setproducts] = useState([]);
     useEffect(() => {
         // Fetch data from API
-        axios.get('https://dist-back.herokuapp.comproduct').then((response) => {
+        axios.get('https://dist-back.herokuapp.com/product').then((response) => {
             setproducts(response.data);
         });
     }, []);

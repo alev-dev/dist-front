@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import jwt_decode from 'jwt-decode';
 import { NotificationContainer, NotificationManager } from 'react-notifications';
 import { getUserData } from '../services/user.service';
+import axios from 'axios';
 
 const C = React.createContext({
     user: null,
@@ -15,19 +16,18 @@ export function AppContext({ children }) {
     const [state, setState] = useState({
         user: null,
         cart: [],
+        loaded: false,
     });
 
     useEffect(() => {
         const token = localStorage.getItem('dist-user-token');
         if (token) {
-            const userData = jwt_decode(token);
-            getUserData(userData._id).then((response) => {
-                setState((state) => ({
-                    ...state,
-                    user: response.data,
-                }));
-            });
-        }
+            getUserFromToken(token);
+        } else
+            setState((state) => ({
+                ...state,
+                loaded: true,
+            }));
 
         const cart = JSON.parse(localStorage.getItem('dist-cart'));
         if (cart) {
@@ -37,6 +37,40 @@ export function AppContext({ children }) {
             }));
         }
     }, []);
+
+    function getUserFromToken(token) {
+        const userData = jwt_decode(token);
+        getUserData(userData._id).then((response) => {
+            setState((state) => ({
+                ...state,
+                user: response.data,
+                loaded: true,
+            }));
+        });
+    }
+
+    const login = (user, callback) => {
+        axios
+            .post('https://dist-back.herokuapp.com/users/authentication', user)
+            .then((response) => {
+                localStorage.setItem('dist-user-token', response.data.token);
+                getUserFromToken(response.data.token);
+                NotificationManager.success('Login realizado com sucesso', 'Sucesso', 3000);
+                callback();
+            })
+            .catch((error) => {
+                NotificationManager.error('Erro ao realizar login', 'Erro', 3000);
+            });
+    };
+
+    const logout = (callback) => {
+        localStorage.removeItem('dist-user-token');
+        setState((state) => ({
+            ...state,
+            user: null,
+        }));
+        callback();
+    };
 
     const addToCart = (product) => {
         const itemOnCart = state.cart.find((item) => item._id === product._id);
@@ -91,7 +125,11 @@ export function AppContext({ children }) {
     const incrementProduct = (product) => {
         const newCart = state.cart.map((item) => {
             if (item._id === product._id) {
-                return { ...item, quantity: item.quantity + 1 };
+                if (item.quantity < product.stock) {
+                    return { ...item, quantity: item.quantity + 1 };
+                } else {
+                    NotificationManager.error('Produto fora de estoque', 'Erro!', 5000);
+                }
             }
             return item;
         });
@@ -118,7 +156,17 @@ export function AppContext({ children }) {
 
     return (
         <C.Provider
-            value={{ ...state, setState, addToCart, removeFromCart, clearCart, incrementProduct, decrementProduct }}
+            value={{
+                ...state,
+                setState,
+                addToCart,
+                removeFromCart,
+                clearCart,
+                incrementProduct,
+                decrementProduct,
+                login,
+                logout,
+            }}
         >
             <NotificationContainer />
             {children}

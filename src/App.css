@@ -16,6 +16,23 @@
 
 }
 
+td img {
+  object-fit: contain;
+}
+
+.category-header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+  background-color: #fff;
+}
+
+.category-header h2 {
+  margin: 4px;
+}
+
 .payment-container {
   width: 100%;
   height: 90%;
@@ -109,9 +126,14 @@
   align-items: center;
   margin: 0 auto;
   width: 100%;
-  max-width: 1200px;
   padding: 0 1rem;
   flex-grow: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .basic-navbar-nav {
+    display: flex;
+  }
 }
 
 .home-cotainer header {
@@ -121,6 +143,24 @@
   flex-direction: column;
   background-color: #bbbbbb;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.573);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+
+
+
+
+
+.navbar-admin-logout {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 1rem;
+  cursor: pointer;
 }
 
 
@@ -220,6 +260,25 @@
   border-bottom: 1px solid #ccc;
 }
 
+.register-btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.form-btn button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.navbar-user {
+  color: #000 !important;
+  font-size: large;
+  font-style: italic;
+}
+
+.navbar-logout {
+  cursor: pointer;
+}
 
 .order-details {
   display: flex;
@@ -286,4 +345,49 @@
 
 .cart-qty-input * {
   margin: 0 5px;
+}
+
+.product-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 0 10px;
+}
+
+.product-form h1 {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 1rem 0;
+}
+
+.product-form input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.product-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.product-form .form-btn {
+  display: flex;
+  justify-content: center;
+}
+
+.product-form .preview {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 10px 0;
 }

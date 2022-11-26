@@ -10,7 +10,6 @@ export default function MyOrders() {
     useEffect(() => {
         if (user) {
             getordersByUser(user._id).then((response) => {
-                console.log(response.data);
                 setorders(response.data);
             });
         }

@@ -14,7 +14,6 @@ export default function Order() {
         }
     }, [idOrder]);
 
-    console.log(order);
     if (order)
         return (
             <div className="order-details-container">
