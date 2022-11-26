@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { Table } from 'react-bootstrap';
-import { useParams } from 'react-router-dom';
 import { getOrders } from '../../services/order.service';
 
 export default function OrderList() {

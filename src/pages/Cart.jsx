@@ -1,9 +1,8 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Badge, ListGroup } from 'react-bootstrap';
 import { useAppContext } from '../context/AppContext';
 import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
-import { getUserData } from '../services/user.service';
 import { Link } from 'react-router-dom';
 
 export default function Cart() {
