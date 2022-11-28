@@ -45,7 +45,7 @@ function ClientNavBar() {
                         <NavDropdown title="Conta" id="basic-nav-dropdown">
                             <p>
                                 {!user ? (
-                                    <Navbar.Text>
+                                    <Navbar.Text className= "black-text">
                                         <Link to="/login"> Login</Link>
                                     </Navbar.Text>
                                 ) : (

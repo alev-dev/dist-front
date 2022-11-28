@@ -1,19 +1,26 @@
-.header-image {
+.header-image {     
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  max-height: 300px;
+  height: 600px;
   align-items: center;
   flex-direction: column;
+  /* background: rgb(200, 222, 6); */
+  background: linear-gradient(  #e3d61e,#dfd18d);
+  z-index: 5;
 }
 
-
+font
 
 .home-cotainer {
   width: 100%;
   background-color: #fff;
+}
 
+.header-text2 {
+  margin: 25px;
+  font-size: 40px;
 }
 
 td img {
@@ -47,7 +54,6 @@ td img {
 .app-layout {
   width: 100%;
   height: 100vh;
-
 }
 
 .payments-list {
@@ -86,6 +92,7 @@ td img {
   text-align: center;
   margin-bottom: 1rem;
   text-shadow: 0 0 10px #000;
+  z-index: 6;
 }
 
 .card:hover {
@@ -96,11 +103,11 @@ td img {
 
 .nav-link {
   margin: 0 1rem;
+  z-index: 10;
 }
 
 .navbar-cart {
   position: relative;
-
 }
 
 .cart-quantity {
@@ -124,7 +131,7 @@ td img {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  margin: 0 auto;
+  margin: 35px auto;
   width: 100%;
   padding: 0 1rem;
   flex-grow: 20px;
@@ -390,4 +397,64 @@ table {
   align-items: center;
   width: 100%;
   margin: 10px 0;
+}
+
+.wave {
+  position: absolute;
+  top: 575px;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background: url(./assets/wave.png);
+  background-size: 1000px 100px; 
+}
+
+.wave.wave1 {
+    animation: animate 30s linear infinite;
+    z-index: 4;
+    opacity: 0.4;
+    animation-delay: 0s;
+    bottom: 0;
+}
+
+.wave.wave2 {
+    animation: animate2 25s linear infinite;
+    z-index: 3;
+    opacity: 0.2;
+    animation-delay: -5s;
+    bottom: 0;
+}
+
+.wave.wave3 {
+    animation: animate 20s linear infinite;
+    z-index: 2;
+    opacity: 0.1;
+    animation-delay: -2s;
+    bottom: 15;
+}
+
+.wave.wave4 {
+    animation: animate2 8s linear infinite;
+    z-index: 1;
+    opacity: 0.3;
+    animation-delay: -5s;
+    bottom: 20px;
+}
+
+@keyframes animate {
+    0% {
+        background-position-x: 0;
+    }
+    100% {
+        background-position-x: 1000px;
+    }
+}
+
+@keyframes animate2 {
+    0% {
+        background-position-x: 0;
+    }
+    100% {
+        background-position-x: -1000px;
+    }
 }

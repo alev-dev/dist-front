@@ -64,8 +64,8 @@ export default function Cart() {
                     <>
                         <div className="details">
                             <div className="cart-total">
-                                <span>Total:</span>
-                                <span>{total} BRL</span>
+                                <span>Total: </span>
+                                <span>{total.toFixed(2)} BRL</span>
                             </div>
                         </div>
                         <div className="cart-actions">
