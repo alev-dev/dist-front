@@ -1,4 +1,4 @@
-.header-image {     
+.header-image {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -7,13 +7,11 @@
   align-items: center;
   flex-direction: column;
   /* background: rgb(200, 222, 6); */
-  background: linear-gradient(  #e3d61e,#dfd18d);
+  background: linear-gradient(#e3d61e, #dfd18d);
   z-index: 5;
 }
 
-font
-
-.home-cotainer {
+font .home-cotainer {
   width: 100%;
   background-color: #fff;
 }
@@ -354,7 +352,7 @@ table {
   margin: 0 5px;
 }
 
-.product-form {
+.product-form, .user-form {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -363,14 +361,14 @@ table {
   padding: 0 10px;
 }
 
-.product-form h1 {
+.product-form, .user-form h1 {
   text-align: center;
-  font-size: 2rem;
+  font-size: 1rem;
   font-weight: 700;
   margin: 1rem 0;
 }
 
-.product-form input {
+.product-form input, .user-form input {
   width: 100%;
   padding: 10px;
   margin: 10px 0;
@@ -378,7 +376,7 @@ table {
   border-radius: 5px;
 }
 
-.product-form textarea {
+.product-form textarea, .user-form textarea {
   width: 100%;
   padding: 10px;
   margin: 10px 0;
@@ -386,17 +384,89 @@ table {
   border-radius: 5px;
 }
 
-.product-form .form-btn {
+.product-form .form-btn, .user-form .form-btn {
   display: flex;
   justify-content: center;
 }
 
-.product-form .preview {
+.product-form .preview, .user-form .preview {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
   margin: 10px 0;
+}
+
+.statistics-container {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #fff;
+
+}
+
+.statistics-container h2 {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 900;
+  margin: 1rem 0;
+}
+
+.statistics-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  padding: 0 10px;
+}
+
+.statistics-section-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 0 10px;
+}
+
+.statistics-section-content-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 0 10px;
+  margin: 10px;
+  border: 1px solid #eee;
+}
+
+.statistics-section-content-item h5 {
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 1rem 0;
+}
+
+.statistics-section-content-item span {
+  text-align: center;
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin: 1rem 0;
+}
+
+.statistics-section-content-item img {
+  object-fit: contain;
+}
+
+.statistics-section-content-item .details {
+  display: flex;
+}
+
+.statistics-section-content-item .images {
+  display: flex;
+
 }
 
 .wave {
@@ -406,55 +476,57 @@ table {
   width: 100%;
   height: 80px;
   background: url(./assets/wave.png);
-  background-size: 1000px 100px; 
+  background-size: 1000px 100px;
 }
 
 .wave.wave1 {
-    animation: animate 30s linear infinite;
-    z-index: 4;
-    opacity: 0.4;
-    animation-delay: 0s;
-    bottom: 0;
+  animation: animate 30s linear infinite;
+  z-index: 4;
+  opacity: 0.4;
+  animation-delay: 0s;
+  bottom: 0;
 }
 
 .wave.wave2 {
-    animation: animate2 25s linear infinite;
-    z-index: 3;
-    opacity: 0.2;
-    animation-delay: -5s;
-    bottom: 0;
+  animation: animate2 25s linear infinite;
+  z-index: 3;
+  opacity: 0.2;
+  animation-delay: -5s;
+  bottom: 0;
 }
 
 .wave.wave3 {
-    animation: animate 20s linear infinite;
-    z-index: 2;
-    opacity: 0.1;
-    animation-delay: -2s;
-    bottom: 15;
+  animation: animate 20s linear infinite;
+  z-index: 2;
+  opacity: 0.1;
+  animation-delay: -2s;
+  bottom: 15;
 }
 
 .wave.wave4 {
-    animation: animate2 8s linear infinite;
-    z-index: 1;
-    opacity: 0.3;
-    animation-delay: -5s;
-    bottom: 20px;
+  animation: animate2 8s linear infinite;
+  z-index: 1;
+  opacity: 0.3;
+  animation-delay: -5s;
+  bottom: 20px;
 }
 
 @keyframes animate {
-    0% {
-        background-position-x: 0;
-    }
-    100% {
-        background-position-x: 1000px;
-    }
+  0% {
+    background-position-x: 0;
+  }
+
+  100% {
+    background-position-x: 1000px;
+  }
 }
 
 @keyframes animate2 {
-    0% {
-        background-position-x: 0;
-    }
-    100% {
-        background-position-x: -1000px;
-    }
+  0% {
+    background-position-x: 0;
+  }
+
+  100% {
+    background-position-x: -1000px;
+  }
 }

@@ -19,3 +19,19 @@ export const createProduct = (product) => {
 export const deleteProduct = (id) => {
     return axios.delete(`https://dist-back.herokuapp.com/product/${id}`);
 };
+
+export const updateProduct = (id, product) => {
+    return axios.put(`https://dist-back.herokuapp.com/product/${id}`, product);
+};
+
+export const getProductById = (id) => {
+    return axios.get(`https://dist-back.herokuapp.com/product/${id}`);
+};
+
+export const getOrdersLast24Hours = () => {
+    return axios.get('https://dist-back.herokuapp.com/order/est/last24hours');
+};
+
+export const getProductsMoreSold = () => {
+    return axios.get('https://dist-back.herokuapp.com/order/est/products/moreSold');
+};

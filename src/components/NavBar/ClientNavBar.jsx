@@ -49,7 +49,9 @@ function ClientNavBar() {
                                         <Link to="/login"> Login</Link>
                                     </Navbar.Text>
                                 ) : (
-                                    <Navbar.Text className="navbar-user">User: {user.name}</Navbar.Text>
+                                    <Navbar.Text className="navbar-user">
+                                        <Link to="/profile"> {user.name}</Link>
+                                    </Navbar.Text>
                                 )}
                             </p>
 

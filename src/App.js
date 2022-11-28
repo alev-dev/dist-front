@@ -16,6 +16,8 @@ import AdminGuard from './guards/AdminGuard';
 import OrderList from './pages/admin/OrderList';
 import ProductManager from './pages/admin/ProductManager';
 import ProductForm from './pages/admin/ProductForm';
+import UpdateProduct from './pages/admin/UpdateProduct';
+import Profile from './pages/Profile';
 
 function App() {
     return (
@@ -54,6 +56,14 @@ function App() {
                             }
                         />
                         <Route
+                            path="/profile"
+                            element={
+                                <ClientGuard>
+                                    <Profile />
+                                </ClientGuard>
+                            }
+                        />
+                        <Route
                             path="/admin/orderlist"
                             element={
                                 <AdminGuard>
@@ -74,6 +84,14 @@ function App() {
                             element={
                                 <AdminGuard>
                                     <ProductForm />
+                                </AdminGuard>
+                            }
+                        />
+                        <Route
+                            path="/admin/product/:productId"
+                            element={
+                                <AdminGuard>
+                                    <UpdateProduct />
                                 </AdminGuard>
                             }
                         />

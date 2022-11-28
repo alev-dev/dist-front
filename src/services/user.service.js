@@ -10,6 +10,14 @@ export const getUser = () => {
     return token ? jwtDecode(token) : null;
 };
 
+export const getUserById = (id) => {
+    return axios.get(`https://dist-back.herokuapp.com/users/${id}`);
+};
+
 export const getOrderByID = (id) => {
     return axios.get(`https://dist-back.herokuapp.com/order/${id}`);
+};
+
+export const updateUser = (id, user) => {
+    return axios.put(`https://dist-back.herokuapp.com/users/${id}`, user);
 };

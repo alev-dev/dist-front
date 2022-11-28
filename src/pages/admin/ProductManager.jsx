@@ -58,7 +58,9 @@ export default function ProductManager() {
                                 <button className="btn btn-danger mx-2" onClick={() => onDeleteProduct(product._id)}>
                                     Remover
                                 </button>
-                                <button className="btn btn-danger mx-2">Atualizar</button>
+                                <Link to={`/admin/product/${product._id}`} className="btn btn-danger mx-2">
+                                    Atualizar
+                                </Link>
                             </td>
                         </tr>
                     ))}
